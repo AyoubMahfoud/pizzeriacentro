@@ -3,7 +3,13 @@
     "allow": [
       "Bash(npm run build)",
       "Bash(npm install -D terser)",
-      "Bash(git init)"
+      "Bash(git init)",
+      "Bash(git commit -m \"Initial commit - Pizzeria Centro premium website with full mobile responsive\")",
+      "Bash(git add index.html src/index.css src/modern-structure.css)",
+      "Bash(git commit -m \"Improve mobile responsive - fix centering and text readability on all devices\")",
+      "Bash(git push)",
+      "Bash(npm run dev)",
+      "Bash(git add .)"
     ],
     "deny": [],
     "ask": []
