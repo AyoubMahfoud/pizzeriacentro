@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm install -D terser)",
+      "Bash(git init)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
