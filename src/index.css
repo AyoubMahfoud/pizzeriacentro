@@ -45,6 +45,11 @@
   --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: var(--font-modern);
   color: var(--rich-black);
@@ -53,6 +58,9 @@ body {
   background: var(--warm-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  min-width: 320px;
+  position: relative;
 }
 
 .container {
@@ -1564,6 +1572,10 @@ cite {
     min-height: auto;
   }
 
+  .container {
+    padding: 0 15px;
+  }
+
   .logo h1 {
     font-size: 1.6rem;
   }
@@ -1585,6 +1597,38 @@ cite {
   .top-bar {
     font-size: 0.8rem;
     padding: 8px 0;
+  }
+}
+
+/* Extra Small Devices (320px - 374px) */
+@media (max-width: 374px) {
+  body {
+    min-width: 320px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .hero {
+    padding: 30px 0 20px;
+  }
+
+  .logo h1 {
+    font-size: 1.4rem;
+  }
+
+  .logo p {
+    font-size: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 10px 18px;
   }
 }
 
