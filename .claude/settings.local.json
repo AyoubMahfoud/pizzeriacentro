@@ -11,7 +11,8 @@
       "Bash(npm run dev)",
       "Bash(git add .)",
       "Bash(git commit -m \"Fix mobile responsive - improve readability and centering on small devices (320px+), complete 3D liquid glass transformation for entire site\")",
-      "Bash(git commit -m \"Aggiorna informazioni storiche - fondazione dal 1979 (46 anni), rimuove schiacciata con aglio, cambia ''Pizza Napoletana'' in ''Pizza Classica''\")"
+      "Bash(git commit -m \"Aggiorna informazioni storiche - fondazione dal 1979 (46 anni), rimuove schiacciata con aglio, cambia ''Pizza Napoletana'' in ''Pizza Classica''\")",
+      "Bash(git commit -m \"Migliora significativamente mobile responsive - font size ottimizzati, padding migliorati, layout centrato per tutti i dispositivi (320px-400px), glass effects ottimizzati per performance mobile\")"
     ],
     "deny": [],
     "ask": []

@@ -26,7 +26,7 @@ function About() {
               </h2>
               <p className="about-text">
                 Nel cuore di Novara, il Ristorante Pizzeria Centro racconta una storia
-                che attraversa generazioni. Dal 1960, siamo custodi di una tradizione
+                che attraversa generazioni. Dal 1979, siamo custodi di una tradizione
                 culinaria che unisce la passione napoletana per la pizza all'eccellenza
                 della cucina piemontese.
               </p>
