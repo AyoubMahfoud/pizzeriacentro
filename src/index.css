@@ -133,7 +133,10 @@ h1, h2, h3, h4, h5, h6 {
    =================================== */
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   padding: 18px 45px;
   border-radius: 0;
   text-decoration: none;
@@ -147,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .btn::before {
@@ -158,6 +162,14 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: rgba(255, 255, 255, 0.1);
   transition: var(--transition-luxury);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .btn:hover::before {
@@ -185,6 +197,14 @@ h1, h2, h3, h4, h5, h6 {
 .btn-secondary:hover {
   background: white;
   color: var(--rich-black);
+}
+
+/* Ensure all buttons are always clickable */
+a.btn,
+button.btn {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
 }
 
 /* ===================================
