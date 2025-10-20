@@ -1413,30 +1413,37 @@ section::before {
     perspective: 600px;
   }
 
-  /* Minimal glass effects */
+  /* Minimal glass effects with better readability */
   .hero-split-container,
   .philosophy-banner,
   .about-story,
   .contact-banner {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 15px;
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .floating-card,
   .feature-card,
+  .showcase-box,
   .pizza-box,
   .event-card,
   .review-card,
-  .contact-card {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+  .contact-card,
+  .stat-badge {
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   /* Remove all 3D transforms */
   .floating-card,
   .feature-card,
   .pizza-box,
+  .showcase-box,
   .event-card,
   .review-card,
   .contact-card,
@@ -1446,21 +1453,27 @@ section::before {
   }
 
   .pizza-box:hover,
+  .showcase-box:hover,
   .feature-card:hover,
   .event-card:hover,
   .review-card:hover {
-    transform: translateY(-3px) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   }
 
-  /* Simplified shadows */
+  /* Enhanced shadows for depth */
   .hero-split-container,
   .philosophy-banner {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .feature-card,
-  .pizza-box {
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  .showcase-box,
+  .pizza-box,
+  .event-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   /* Disable all background animations */
@@ -1472,31 +1485,41 @@ section::before {
     display: none;
   }
 
-  /* Static gradients */
+  /* Static gradients for better performance */
   .hero-title,
   .philosophy-quote {
     animation: none;
   }
+
+  .gold-text {
+    background: linear-gradient(135deg, #C9A961 0%, #E6D5A3 50%, #C9A961 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 @media (max-width: 374px) {
-  /* Ultra small devices - minimal effects */
+  /* Ultra small devices - minimal effects for better performance */
 
-  /* Very light glass */
+  /* Light glass effects */
   .hero-split-container,
   .philosophy-banner,
   .contact-banner {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .btn,
   .feature-card,
+  .showcase-box,
   .pizza-box,
   .event-card,
   .review-card,
   .contact-card {
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px) saturate(130%);
     -webkit-backdrop-filter: blur(4px);
   }
 
