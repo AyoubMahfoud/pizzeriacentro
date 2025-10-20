@@ -13,7 +13,7 @@ function Footer() {
               <p>RISTORANTE PIZZERIA</p>
             </div>
             <p className="footer-description">
-              Nel cuore di Novara dal 1960, dove la tradizione culinaria italiana
+              Nel cuore di Novara dal 1979, dove la tradizione culinaria italiana
               incontra la passione per l'eccellenza.
             </p>
           </div>
@@ -46,7 +46,7 @@ function Footer() {
             <div className="footer-badges">
               <span className="badge">4 Sale Eleganti</span>
               <span className="badge">150 Posti</span>
-              <span className="badge">Dal 1960</span>
+              <span className="badge">Dal 1979</span>
             </div>
           </div>
         </div>

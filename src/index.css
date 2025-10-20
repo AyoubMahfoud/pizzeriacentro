@@ -162,13 +162,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: rgba(255, 255, 255, 0.1);
   transition: var(--transition-luxury);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.btn > * {
-  position: relative;
-  z-index: 2;
   pointer-events: none;
 }
 
@@ -205,6 +198,18 @@ button.btn {
   pointer-events: auto !important;
   position: relative;
   z-index: 10;
+}
+
+/* Make all button content clickable */
+.btn span,
+.btn svg,
+.btn * {
+  pointer-events: none !important;
+}
+
+/* Ensure button itself captures all clicks */
+.btn {
+  cursor: pointer !important;
 }
 
 /* ===================================

@@ -40,7 +40,7 @@ function About() {
             {/* Image Placeholder */}
             <div className="about-visual">
               <div className="visual-box main-visual">
-                <span className="visual-text">Tradizione dal 1960</span>
+                <span className="visual-text">Tradizione dal 1979</span>
               </div>
               <div className="visual-box secondary-visual">
                 <span className="visual-number">150</span>
