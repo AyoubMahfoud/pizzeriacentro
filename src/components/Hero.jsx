@@ -6,7 +6,7 @@ function Hero() {
       <div className="hero-split-container">
         {/* Left Side - Content */}
         <div className="hero-left">
-          <div className="hero-badge">Dal 1960</div>
+          <div className="hero-badge">Dal 1979</div>
           <h1 className="hero-title">
             Eccellenza<br/>
             <span className="gold-text">Culinaria</span><br/>
@@ -29,7 +29,7 @@ function Hero() {
           </div>
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">60+</span>
+              <span className="stat-number">46</span>
               <span className="stat-label">Anni di Storia</span>
             </div>
             <div className="stat-item">
@@ -48,7 +48,7 @@ function Hero() {
           <div className="hero-image-wrapper">
             <div className="floating-card card-1">
               <span className="card-icon">🍕</span>
-              <span className="card-text">Pizza Napoletana</span>
+              <span className="card-text">Pizza Classica</span>
             </div>
             <div className="floating-card card-2">
               <span className="card-icon">🍝</span>

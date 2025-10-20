@@ -10,7 +10,7 @@ function Pizzeria() {
           <div className="section-header">
             <span className="section-label">Le Nostre Specialità</span>
             <h2 className="section-title-large">
-              L'Arte della <span className="gold-text">Pizza</span> Napoletana
+              L'Arte della <span className="gold-text">Pizza</span> Classica
             </h2>
             <p className="section-subtitle">
               Tradizione partenopea e creatività dei nostri maestri pizzaioli
@@ -41,8 +41,8 @@ function Pizzeria() {
               <span className="box-icon">🍕</span>
               <h3 className="box-title">Pizza al Metro</h3>
               <p className="box-description">
-                La nostra specialità: schiacciata croccante con aglio
-                e pomodoro fresco. Perfetta da condividere!
+                La nostra specialità: pizza croccante con pomodoro fresco.
+                Perfetta da condividere!
               </p>
             </div>
 
@@ -159,10 +159,10 @@ function Pizzeria() {
 
               <div className="stat-box">
                 <span className="stat-icon">👨‍🍳</span>
-                <span className="stat-number">60+</span>
+                <span className="stat-number">46</span>
                 <span className="stat-label">Anni di Esperienza</span>
                 <p className="stat-description">
-                  Tradizione che si tramanda dal 1960
+                  Tradizione che si tramanda dal 1979
                 </p>
               </div>
             </div>
