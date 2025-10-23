@@ -25,7 +25,7 @@ function Pizzeria() {
                 <span className="box-badge">Il Nostro Segreto</span>
                 <h3 className="box-title">Impasto Fatto a Mano</h3>
                 <p className="box-description">
-                  Lievitazione naturale di 72 ore, farine selezionate biologiche
+                  Lievitazione naturale di 72 ore, farine selezionate 
                   e cottura nel nostro forno a legna tradizionale
                 </p>
                 <div className="box-features">
@@ -41,8 +41,9 @@ function Pizzeria() {
               <span className="box-icon">🍕</span>
               <h3 className="box-title">Pizza al Metro</h3>
               <p className="box-description">
-                La nostra specialità: pizza croccante con pomodoro fresco.
-                Perfetta da condividere!
+                La nostra specialità: con impasto a base di 
+                farina integrale, ottima da condividere anche
+                d'asporto.
               </p>
             </div>
 

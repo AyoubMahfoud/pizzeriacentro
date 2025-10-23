@@ -14,7 +14,8 @@
       "Bash(git commit -m \"Aggiorna informazioni storiche - fondazione dal 1979 (46 anni), rimuove schiacciata con aglio, cambia ''Pizza Napoletana'' in ''Pizza Classica''\")",
       "Bash(git commit -m \"Migliora significativamente mobile responsive - font size ottimizzati, padding migliorati, layout centrato per tutti i dispositivi (320px-400px), glass effects ottimizzati per performance mobile\")",
       "Bash(git commit -m \"Aggiorna anno di fondazione in About section - dal 1960 a dal 1979\")",
-      "Bash(git commit -m \"Fix button clickability issues - add z-index and pointer-events to ensure all buttons are fully clickable in all sections\")"
+      "Bash(git commit -m \"Fix button clickability issues - add z-index and pointer-events to ensure all buttons are fully clickable in all sections\")",
+      "Bash(git commit -m \"Fix button clickability issues - ensure entire button area is clickable by setting pointer-events: none on all child elements\")"
     ],
     "deny": [],
     "ask": []
