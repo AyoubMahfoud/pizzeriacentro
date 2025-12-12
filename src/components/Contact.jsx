@@ -107,22 +107,60 @@ function Contact() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.8366544!2d8.6194!3d45.4469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47865a2419de011f%3A0xd0e3f3f3f3f3f3f3!2sLargo%20Cavalli%2C%202%2C%2028100%20Novara%20NO%2C%20Italy!5e0!3m2!1sen!2sit!4v1234567890"
               width="100%"
               height="450"
-              style={{border: 0, borderRadius: 0}}
+              style={{ border: 0, borderRadius: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Mappa Ristorante Pizzeria Centro Novara"
             ></iframe>
           </div>
-          <div className="map-info">
-            <p className="map-address">📍 Largo Cavalli 2, angolo Corso Cavallotti 9, 28100 Novara (NO)</p>
+
+          {/* Simple Directions Link */}
+          <div style={{
+            textAlign: 'center',
+            marginTop: '30px',
+            padding: '50px 40px',
+            background: 'white',
+            borderRadius: '15px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+          }}>
+            <p style={{
+              fontSize: '1.3rem',
+              marginBottom: '25px',
+              color: '#1C1C1C',
+              fontWeight: '600'
+            }}>
+              📍 Largo Giovanni Carlo Cavalli, 2, 28100 Novara NO
+            </p>
             <a
-              href="https://www.google.com/maps/dir//Largo+Cavalli,+2,+28100+Novara+NO"
+              href="https://www.google.com/maps/dir//Largo+Giovanni+Carlo+Cavalli,+2,+28100+Novara+NO"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary"
+              style={{
+                display: 'inline-block',
+                padding: '20px 50px',
+                background: '#C9A961',
+                color: 'white',
+                textDecoration: 'none',
+                fontSize: '1.2rem',
+                fontWeight: '700',
+                borderRadius: '8px',
+                border: 'none',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 15px rgba(201, 169, 97, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = '#A88B4F';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 6px 20px rgba(201, 169, 97, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = '#C9A961';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(201, 169, 97, 0.3)';
+              }}
             >
-              Ottieni Indicazioni
+              🗺️ Ottieni Indicazioni
             </a>
           </div>
         </div>

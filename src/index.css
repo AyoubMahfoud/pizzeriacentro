@@ -1,6 +1,7 @@
 /* ===================================
    ULTRA PREMIUM PIZZERIA CENTRO
    Design da 10.000€ - Luxury Edition
+   UPDATED: 2025-12-12 16:26 - Button Fix v4
    =================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Italiana&display=swap');
@@ -73,7 +74,12 @@ body {
    PREMIUM TYPOGRAPHY
    =================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-elegant);
   font-weight: 600;
   line-height: 1.3;
@@ -163,6 +169,8 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.1);
   transition: var(--transition-luxury);
   pointer-events: none;
+  display: none;
+  /* DISABLED: This was blocking clicks */
 }
 
 .btn:hover::before {
@@ -200,17 +208,78 @@ button.btn {
   z-index: 10;
 }
 
-/* Make all button content clickable */
+
+
+/* Force ALL clicks to go to the button element itself, not its children */
+.btn *,
 .btn span,
 .btn svg,
-.btn * {
+.btn path {
   pointer-events: none !important;
 }
 
 /* Ensure button itself captures all clicks */
 .btn {
   cursor: pointer !important;
+  pointer-events: auto !important;
 }
+
+/* ===================================
+   CRITICAL FIX: Button Clickability Override
+   This overrides ALL previous button styles
+   =================================== */
+a.btn,
+button.btn {
+  /* Reset all transforms and effects that might interfere */
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  /* Ensure proper stacking */
+  position: relative !important;
+  z-index: 100 !important;
+
+  /* Ensure clickability */
+  pointer-events: auto !important;
+  cursor: pointer !important;
+
+  /* Make sure it's a block that captures clicks */
+  display: inline-flex !important;
+}
+
+/* Disable ALL pseudo-elements on buttons */
+a.btn::before,
+button.btn::before,
+a.btn::after,
+button.btn::after {
+  display: none !important;
+}
+
+/* Disable ALL hover effects and animations on buttons */
+a.btn,
+button.btn {
+  transition: none !important;
+  animation: none !important;
+}
+
+a.btn:hover,
+button.btn:hover,
+a.btn:active,
+button.btn:active {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Make button children pass clicks to parent */
+.btn span,
+.btn svg,
+.btn path,
+.btn * {
+  pointer-events: none !important;
+}
+
+
 
 /* ===================================
    TOP BAR - ULTRA LUXURY
@@ -374,9 +443,9 @@ button.btn {
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg,
-    rgba(10, 10, 10, 0.85) 0%,
-    rgba(107, 27, 27, 0.7) 50%,
-    rgba(10, 10, 10, 0.9) 100%),
+      rgba(10, 10, 10, 0.85) 0%,
+      rgba(107, 27, 27, 0.7) 50%,
+      rgba(10, 10, 10, 0.9) 100%),
     url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230A0A0A"/><stop offset="100%" style="stop-color:%231C1C1C"/></linearGradient></defs><rect fill="url(%23g)" width="1920" height="1080"/></svg>');
   background-size: cover;
   background-position: center;
@@ -402,8 +471,15 @@ button.btn {
 }
 
 @keyframes heroGlow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .hero-overlay {
@@ -412,7 +488,7 @@ button.btn {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 .hero-content {
@@ -426,7 +502,7 @@ button.btn {
 .hero-title {
   font-size: 5.5rem;
   margin-bottom: 30px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   font-family: var(--font-elegant);
   font-weight: 600;
   letter-spacing: 3px;
@@ -716,8 +792,13 @@ cite {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .image-overlay {
@@ -824,8 +905,13 @@ cite {
 }
 
 @keyframes patternMove {
-  from { background-position: 0 0; }
-  to { background-position: 100px 100px; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100px 100px;
+  }
 }
 
 .event-details {
@@ -1002,8 +1088,15 @@ cite {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .cta-content {
@@ -1022,9 +1115,21 @@ cite {
 }
 
 @keyframes ring {
-  0%, 100% { transform: rotate(0deg); }
-  10%, 30% { transform: rotate(-10deg); }
-  20%, 40% { transform: rotate(10deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
 }
 
 .cta-content h2 {
@@ -1345,6 +1450,7 @@ cite {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1352,12 +1458,19 @@ cite {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40% {
     transform: translateX(-50%) translateY(-15px);
   }
+
   60% {
     transform: translateX(-50%) translateY(-8px);
   }
@@ -1368,9 +1481,11 @@ cite {
     opacity: 0;
     transform: translateY(0);
   }
+
   40% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translateY(20px);
@@ -1504,6 +1619,7 @@ cite {
 }
 
 @media (max-width: 600px) {
+
   /* Hero fixes */
   .hero {
     height: auto;
@@ -1591,6 +1707,7 @@ cite {
 }
 
 @media (max-width: 400px) {
+
   /* Hero fixes */
   .hero {
     height: auto;
@@ -1678,6 +1795,7 @@ button:focus {
 
 /* Print Optimization */
 @media print {
+
   .navbar,
   .footer,
   .hero-buttons,

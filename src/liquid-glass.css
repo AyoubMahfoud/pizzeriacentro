@@ -28,8 +28,7 @@ body {
       rgba(28, 28, 28, 0.9) 25%,
       rgba(107, 27, 27, 0.85) 50%,
       rgba(28, 28, 28, 0.9) 75%,
-      rgba(10, 10, 10, 0.95) 100%
-    );
+      rgba(10, 10, 10, 0.95) 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
   position: relative;
@@ -37,8 +36,15 @@ body {
 }
 
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Liquid Glass Orbs - Floating Background */
@@ -59,12 +65,16 @@ body {
 }
 
 @keyframes liquidFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
+
   33% {
     transform: translate(30px, -30px) rotate(120deg) scale(1.1);
   }
+
   66% {
     transform: translate(-30px, 30px) rotate(240deg) scale(0.9);
   }
@@ -96,8 +106,8 @@ body {
 /* 3D Glass Badge */
 .hero-badge {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(201, 169, 97, 0.05) 100%);
+      rgba(201, 169, 97, 0.2) 0%,
+      rgba(201, 169, 97, 0.05) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(201, 169, 97, 0.4);
@@ -116,30 +126,31 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 70%);
   animation: shimmer 3s infinite;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 /* 3D Title with Liquid Glass Effect */
 .hero-title {
-  background: linear-gradient(
-    135deg,
-    #FFFFFF 0%,
-    #C9A961 30%,
-    #FFFFFF 50%,
-    #E6D5A3 70%,
-    #FFFFFF 100%
-  );
+  background: linear-gradient(135deg,
+      #FFFFFF 0%,
+      #C9A961 30%,
+      #FFFFFF 50%,
+      #E6D5A3 70%,
+      #FFFFFF 100%);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -151,8 +162,15 @@ body {
 }
 
 @keyframes liquidGradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .hero-title::after {
@@ -172,9 +190,8 @@ body {
 /* Glass Buttons with 3D Effect */
 .btn {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.3) 0%,
-    rgba(201, 169, 97, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.3) 0%,
+      rgba(201, 169, 97, 0.1) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(201, 169, 97, 0.5);
@@ -196,14 +213,15 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
   transition: left 0.6s;
   pointer-events: none;
+  z-index: -1;
+  display: none;
+  /* DISABLED: This was blocking clicks */
 }
 
 .btn:hover::before {
@@ -223,6 +241,50 @@ body {
   transform: translateZ(35px) translateY(-1px);
 }
 
+/* CRITICAL OVERRIDE: Disable ALL 3D and hover effects on buttons */
+a.btn,
+button.btn {
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: none !important;
+  animation: none !important;
+  box-shadow: 0 8px 32px rgba(201, 169, 97, 0.3) !important;
+}
+
+a.btn:hover,
+button.btn:hover {
+  transform: none !important;
+  animation: none !important;
+  box-shadow: 0 8px 32px rgba(201, 169, 97, 0.3) !important;
+}
+
+a.btn:active,
+button.btn:active {
+  transform: none !important;
+}
+
+/* Disable ALL pseudo-elements */
+a.btn::before,
+button.btn::before,
+a.btn::after,
+button.btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Force ALL clicks to go to the button element itself */
+.btn *,
+.btn span,
+.btn svg,
+.btn path {
+  pointer-events: none !important;
+}
+
+.btn {
+  pointer-events: auto !important;
+}
+
 /* Liquid Glass Stats */
 .hero-stats {
   background: rgba(255, 255, 255, 0.02);
@@ -236,9 +298,8 @@ body {
 
 .stat-item {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.01) 100%
-  );
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.01) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -253,9 +314,8 @@ body {
 .stat-item:hover {
   transform: translateZ(30px) scale(1.05);
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.1) 0%,
-    rgba(201, 169, 97, 0.03) 100%
-  );
+      rgba(201, 169, 97, 0.1) 0%,
+      rgba(201, 169, 97, 0.03) 100%);
   border-color: rgba(201, 169, 97, 0.3);
   box-shadow:
     0 8px 32px rgba(201, 169, 97, 0.3),
@@ -270,9 +330,8 @@ body {
 
 .hero-image-wrapper {
   background: linear-gradient(135deg,
-    rgba(28, 28, 28, 0.4) 0%,
-    rgba(10, 10, 10, 0.6) 100%
-  );
+      rgba(28, 28, 28, 0.4) 0%,
+      rgba(10, 10, 10, 0.6) 100%);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 2px solid rgba(201, 169, 97, 0.3);
@@ -290,12 +349,10 @@ body {
   content: '';
   position: absolute;
   inset: -2px;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(201, 169, 97, 0.1),
-    transparent
-  );
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(201, 169, 97, 0.1),
+      transparent);
   border-radius: 30px;
   opacity: 0;
   transition: opacity 0.6s;
@@ -307,16 +364,22 @@ body {
 }
 
 @keyframes borderGlow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Liquid Glass Floating Cards */
 .floating-card {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   border: 1.5px solid rgba(255, 255, 255, 0.2);
@@ -338,11 +401,9 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 70%);
   transform: translate(-50%, -50%);
   transition: all 0.6s;
   opacity: 0;
@@ -375,15 +436,20 @@ body {
 }
 
 @keyframes float3D {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(0) translateY(0px) rotateX(0deg) rotateY(0deg);
   }
+
   25% {
     transform: translateZ(30px) translateY(-15px) rotateX(5deg) rotateY(-5deg);
   }
+
   50% {
     transform: translateZ(50px) translateY(-25px) rotateX(-3deg) rotateY(8deg);
   }
+
   75% {
     transform: translateZ(30px) translateY(-15px) rotateX(4deg) rotateY(-6deg);
   }
@@ -414,9 +480,8 @@ body {
 .contact-card,
 .review-card {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.7) 100%
-  );
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.7) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(201, 169, 97, 0.2);
@@ -439,11 +504,9 @@ body {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(201, 169, 97, 0.1) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(circle,
+      rgba(201, 169, 97, 0.1) 0%,
+      transparent 60%);
   opacity: 0;
   transition: opacity 0.6s;
 }
@@ -498,28 +561,31 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(201, 169, 97, 0.1) 0%,
-    transparent 50%,
-    rgba(201, 169, 97, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(201, 169, 97, 0.1) 0%,
+      transparent 50%,
+      rgba(201, 169, 97, 0.1) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
 /* Particle Effect */
 @keyframes particleFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translate(100px, -100px) scale(0);
     opacity: 0;
@@ -528,9 +594,12 @@ body {
 
 /* Glow Pulse Effect */
 @keyframes glowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: drop-shadow(0 0 20px rgba(201, 169, 97, 0.4));
   }
+
   50% {
     filter: drop-shadow(0 0 40px rgba(201, 169, 97, 0.8));
   }
@@ -563,8 +632,13 @@ section::before {
 }
 
 @keyframes sectionFlow {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 /* About Section - 3D Glass */
@@ -573,17 +647,15 @@ section::before {
     linear-gradient(135deg,
       rgba(250, 248, 243, 0.95) 0%,
       rgba(255, 253, 247, 0.9) 50%,
-      rgba(250, 248, 243, 0.95) 100%
-    );
+      rgba(250, 248, 243, 0.95) 100%);
   position: relative;
 }
 
 .philosophy-banner {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.15) 0%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(201, 169, 97, 0.15) 100%
-  );
+      rgba(201, 169, 97, 0.15) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(201, 169, 97, 0.15) 100%);
   backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   border: 2px solid rgba(201, 169, 97, 0.3);
@@ -604,17 +676,24 @@ section::before {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(201, 169, 97, 0.1) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(201, 169, 97, 0.1) 0%,
+      transparent 70%);
   animation: philosophyGlow 8s ease-in-out infinite;
 }
 
 @keyframes philosophyGlow {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-  50% { transform: translate(-20%, -20%) scale(1.2); opacity: 1; }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(-20%, -20%) scale(1.2);
+    opacity: 1;
+  }
 }
 
 .philosophy-quote {
@@ -630,8 +709,15 @@ section::before {
 }
 
 @keyframes liquidText {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .about-grid {
@@ -641,9 +727,8 @@ section::before {
 
 .about-story {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.6) 100%
-  );
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.6) 100%);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1.5px solid rgba(201, 169, 97, 0.25);
@@ -665,9 +750,8 @@ section::before {
 
 .about-visual {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(107, 27, 27, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.2) 0%,
+      rgba(107, 27, 27, 0.1) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid rgba(201, 169, 97, 0.3);
@@ -685,17 +769,24 @@ section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(201, 169, 97, 0.3) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      rgba(201, 169, 97, 0.3) 0%,
+      transparent 70%);
   animation: visualPulse 4s ease-in-out infinite;
 }
 
 @keyframes visualPulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 .about-visual:hover {
@@ -717,14 +808,25 @@ section::before {
   animation: featureFloat 6s ease-in-out infinite;
 }
 
-.feature-card:nth-child(1) { animation-delay: 0s; }
-.feature-card:nth-child(2) { animation-delay: 2s; }
-.feature-card:nth-child(3) { animation-delay: 4s; }
+.feature-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 4s;
+}
 
 @keyframes featureFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(40px) translateY(0);
   }
+
   50% {
     transform: translateZ(60px) translateY(-15px);
   }
@@ -733,10 +835,9 @@ section::before {
 /* Pizzeria Section - 3D Bento Grid */
 .pizzeria {
   background: linear-gradient(180deg,
-    rgba(250, 248, 243, 1) 0%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(250, 248, 243, 1) 100%
-  );
+      rgba(250, 248, 243, 1) 0%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(250, 248, 243, 1) 100%);
   position: relative;
 }
 
@@ -763,12 +864,10 @@ section::before {
   content: '';
   position: absolute;
   inset: -3px;
-  background: linear-gradient(
-    135deg,
-    rgba(201, 169, 97, 0.5),
-    transparent 30%,
-    rgba(201, 169, 97, 0.5)
-  );
+  background: linear-gradient(135deg,
+      rgba(201, 169, 97, 0.5),
+      transparent 30%,
+      rgba(201, 169, 97, 0.5));
   border-radius: 25px;
   opacity: 0;
   transition: opacity 0.6s;
@@ -781,39 +880,75 @@ section::before {
 }
 
 @keyframes borderRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .pizza-box:hover {
   transform: translateZ(70px) scale(1.05);
 }
 
-.large-box { animation: boxFloat1 8s ease-in-out infinite; }
-.medium-box { animation: boxFloat2 9s ease-in-out infinite; }
-.wide-box { animation: boxFloat3 10s ease-in-out infinite; }
-.vertical-box { animation: boxFloat1 7s ease-in-out infinite; }
+.large-box {
+  animation: boxFloat1 8s ease-in-out infinite;
+}
+
+.medium-box {
+  animation: boxFloat2 9s ease-in-out infinite;
+}
+
+.wide-box {
+  animation: boxFloat3 10s ease-in-out infinite;
+}
+
+.vertical-box {
+  animation: boxFloat1 7s ease-in-out infinite;
+}
 
 @keyframes boxFloat1 {
-  0%, 100% { transform: translateZ(30px) translateY(0) rotateX(0); }
-  50% { transform: translateZ(50px) translateY(-10px) rotateX(2deg); }
+
+  0%,
+  100% {
+    transform: translateZ(30px) translateY(0) rotateX(0);
+  }
+
+  50% {
+    transform: translateZ(50px) translateY(-10px) rotateX(2deg);
+  }
 }
 
 @keyframes boxFloat2 {
-  0%, 100% { transform: translateZ(30px) translateY(0) rotateY(0); }
-  50% { transform: translateZ(50px) translateY(-15px) rotateY(-2deg); }
+
+  0%,
+  100% {
+    transform: translateZ(30px) translateY(0) rotateY(0);
+  }
+
+  50% {
+    transform: translateZ(50px) translateY(-15px) rotateY(-2deg);
+  }
 }
 
 @keyframes boxFloat3 {
-  0%, 100% { transform: translateZ(30px) scale(1); }
-  50% { transform: translateZ(50px) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateZ(30px) scale(1);
+  }
+
+  50% {
+    transform: translateZ(50px) scale(1.02);
+  }
 }
 
 .cta-box {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(107, 27, 27, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.2) 0%,
+      rgba(107, 27, 27, 0.1) 100%);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 2px solid rgba(201, 169, 97, 0.4);
@@ -833,10 +968,9 @@ section::before {
 /* Events Section - 3D Glass */
 .events {
   background: linear-gradient(135deg,
-    rgba(28, 28, 28, 0.98) 0%,
-    rgba(10, 10, 10, 1) 50%,
-    rgba(28, 28, 28, 0.98) 100%
-  );
+      rgba(28, 28, 28, 0.98) 0%,
+      rgba(10, 10, 10, 1) 50%,
+      rgba(28, 28, 28, 0.98) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -858,15 +992,29 @@ section::before {
   animation: eventFloat 7s ease-in-out infinite;
 }
 
-.event-card:nth-child(1) { animation-delay: 0s; }
-.event-card:nth-child(2) { animation-delay: 1.75s; }
-.event-card:nth-child(3) { animation-delay: 3.5s; }
-.event-card:nth-child(4) { animation-delay: 5.25s; }
+.event-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.event-card:nth-child(2) {
+  animation-delay: 1.75s;
+}
+
+.event-card:nth-child(3) {
+  animation-delay: 3.5s;
+}
+
+.event-card:nth-child(4) {
+  animation-delay: 5.25s;
+}
 
 @keyframes eventFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(40px) rotateX(0);
   }
+
   50% {
     transform: translateZ(60px) rotateX(5deg);
   }
@@ -879,9 +1027,8 @@ section::before {
 
 .event-visual-box {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.15) 0%,
-    rgba(107, 27, 27, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.15) 0%,
+      rgba(107, 27, 27, 0.1) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid rgba(201, 169, 97, 0.3);
@@ -899,11 +1046,9 @@ section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(201, 169, 97, 0.3) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      rgba(201, 169, 97, 0.3) 0%,
+      transparent 70%);
   opacity: 0;
   transition: opacity 0.6s;
 }
@@ -923,9 +1068,8 @@ section::before {
 /* Google Reviews - 3D Glass */
 .google-reviews {
   background: linear-gradient(180deg,
-    rgba(250, 248, 243, 1) 0%,
-    rgba(255, 253, 247, 0.95) 100%
-  );
+      rgba(250, 248, 243, 1) 0%,
+      rgba(255, 253, 247, 0.95) 100%);
   position: relative;
 }
 
@@ -939,14 +1083,25 @@ section::before {
   animation: statFloat 5s ease-in-out infinite;
 }
 
-.stat-badge:nth-child(1) { animation-delay: 0s; }
-.stat-badge:nth-child(2) { animation-delay: 1.66s; }
-.stat-badge:nth-child(3) { animation-delay: 3.33s; }
+.stat-badge:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stat-badge:nth-child(2) {
+  animation-delay: 1.66s;
+}
+
+.stat-badge:nth-child(3) {
+  animation-delay: 3.33s;
+}
 
 @keyframes statFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(30px) translateY(0);
   }
+
   50% {
     transform: translateZ(50px) translateY(-8px);
   }
@@ -962,14 +1117,25 @@ section::before {
   animation: reviewFloat 6s ease-in-out infinite;
 }
 
-.review-card:nth-child(1) { animation-delay: 0s; }
-.review-card:nth-child(2) { animation-delay: 2s; }
-.review-card:nth-child(3) { animation-delay: 4s; }
+.review-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.review-card:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.review-card:nth-child(3) {
+  animation-delay: 4s;
+}
 
 @keyframes reviewFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(35px) rotateY(0);
   }
+
   50% {
     transform: translateZ(55px) rotateY(3deg);
   }
@@ -977,9 +1143,8 @@ section::before {
 
 .reviews-cta {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.7) 100%
-  );
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.7) 100%);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 2px solid rgba(201, 169, 97, 0.4);
@@ -1001,10 +1166,9 @@ section::before {
 /* Contact Section - 3D Glass */
 .contact {
   background: linear-gradient(135deg,
-    rgba(10, 10, 10, 1) 0%,
-    rgba(28, 28, 28, 0.98) 50%,
-    rgba(10, 10, 10, 1) 100%
-  );
+      rgba(10, 10, 10, 1) 0%,
+      rgba(28, 28, 28, 0.98) 50%,
+      rgba(10, 10, 10, 1) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1018,9 +1182,8 @@ section::before {
 
 .contact-banner {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(107, 27, 27, 0.15) 100%
-  );
+      rgba(201, 169, 97, 0.2) 0%,
+      rgba(107, 27, 27, 0.15) 100%);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 2px solid rgba(201, 169, 97, 0.3);
@@ -1041,25 +1204,31 @@ section::before {
   left: 50%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(
-    circle,
-    rgba(201, 169, 97, 0.4) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(201, 169, 97, 0.4) 0%,
+      transparent 70%);
   transform: translate(-50%, -50%);
   animation: contactGlow 6s ease-in-out infinite;
 }
 
 @keyframes contactGlow {
-  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.3); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
 }
 
 .phone-icon-wrapper {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.3) 0%,
-    rgba(201, 169, 97, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.3) 0%,
+      rgba(201, 169, 97, 0.1) 100%);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 2px solid rgba(201, 169, 97, 0.5);
@@ -1070,11 +1239,27 @@ section::before {
 }
 
 @keyframes phoneRing {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  10% { transform: rotate(-10deg) scale(1.05); }
-  20% { transform: rotate(10deg) scale(1.05); }
-  30% { transform: rotate(-10deg) scale(1.05); }
-  40% { transform: rotate(0deg) scale(1); }
+
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  10% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+
+  20% {
+    transform: rotate(10deg) scale(1.05);
+  }
+
+  30% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+
+  40% {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 .contact-cards {
@@ -1087,15 +1272,29 @@ section::before {
   animation: contactFloat 7s ease-in-out infinite;
 }
 
-.contact-card:nth-child(1) { animation-delay: 0s; }
-.contact-card:nth-child(2) { animation-delay: 1.75s; }
-.contact-card:nth-child(3) { animation-delay: 3.5s; }
-.contact-card:nth-child(4) { animation-delay: 5.25s; }
+.contact-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.contact-card:nth-child(2) {
+  animation-delay: 1.75s;
+}
+
+.contact-card:nth-child(3) {
+  animation-delay: 3.5s;
+}
+
+.contact-card:nth-child(4) {
+  animation-delay: 5.25s;
+}
 
 @keyframes contactFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateZ(35px) translateY(0);
   }
+
   50% {
     transform: translateZ(55px) translateY(-10px);
   }
@@ -1103,9 +1302,8 @@ section::before {
 
 .contact-card.large {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.08) 100%);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   box-shadow:
@@ -1121,9 +1319,8 @@ section::before {
 /* Footer - 3D Glass */
 .footer {
   background: linear-gradient(135deg,
-    rgba(10, 10, 10, 1) 0%,
-    rgba(28, 28, 28, 0.98) 100%
-  );
+      rgba(10, 10, 10, 1) 0%,
+      rgba(28, 28, 28, 0.98) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid rgba(201, 169, 97, 0.2);
@@ -1185,9 +1382,8 @@ section::before {
 
 .footer-badge {
   background: linear-gradient(135deg,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(201, 169, 97, 0.1) 100%
-  );
+      rgba(201, 169, 97, 0.2) 0%,
+      rgba(201, 169, 97, 0.1) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(201, 169, 97, 0.3);
@@ -1246,8 +1442,15 @@ section::before {
   }
 
   @keyframes simpleFloat {
-    0%, 100% { transform: translateZ(20px) translateY(0); }
-    50% { transform: translateZ(30px) translateY(-8px); }
+
+    0%,
+    100% {
+      transform: translateZ(20px) translateY(0);
+    }
+
+    50% {
+      transform: translateZ(30px) translateY(-8px);
+    }
   }
 
   /* Reduce box shadows */
@@ -1261,6 +1464,7 @@ section::before {
 }
 
 @media (max-width: 768px) {
+
   /* Further optimize for tablet */
   .hero-split-container,
   .philosophy-banner {
@@ -1298,6 +1502,7 @@ section::before {
 }
 
 @media (max-width: 576px) {
+
   /* Mobile-first optimizations */
   body {
     perspective: 800px;
@@ -1410,6 +1615,7 @@ section::before {
 }
 
 @media (max-width: 400px) {
+
   /* Extra small devices - maximum optimization */
   body {
     perspective: 600px;
@@ -1467,7 +1673,7 @@ section::before {
   .hero-split-container,
   .philosophy-banner {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .feature-card,
@@ -1475,7 +1681,7 @@ section::before {
   .pizza-box,
   .event-card {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   /* Disable all background animations */
@@ -1549,6 +1755,7 @@ section::before {
 
 /* Landscape mode optimization */
 @media (max-height: 500px) and (orientation: landscape) {
+
   /* Reduce all animations in landscape */
   .floating-card,
   .feature-card,
@@ -1573,6 +1780,7 @@ section::before {
 
 /* Prefixed motion support */
 @media (prefers-reduced-motion: reduce) {
+
   /* Disable all animations for accessibility */
   *,
   *::before,
@@ -1590,4 +1798,68 @@ section::before {
   .contact-card {
     animation: none !important;
   }
+}
+
+
+/* ============================================================================
+   CRITICAL BUTTON FIX - MUST BE LAST TO OVERRIDE EVERYTHING
+   ============================================================================ */
+
+/* Remove ALL 3D effects, transforms, and animations from buttons */
+a.btn,
+button.btn,
+.btn {
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: none !important;
+  animation: none !important;
+  perspective: none !important;
+  transform-style: flat !important;
+}
+
+/* Remove ALL hover effects */
+a.btn:hover,
+button.btn:hover,
+.btn:hover,
+a.btn:active,
+button.btn:active,
+.btn:active,
+a.btn:focus,
+button.btn:focus,
+.btn:focus {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Remove ALL pseudo-elements */
+a.btn::before,
+button.btn::before,
+.btn::before,
+a.btn::after,
+button.btn::after,
+.btn::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Ensure button children don't capture clicks */
+.btn *,
+.btn span,
+.btn svg,
+.btn path {
+  pointer-events: none !important;
+}
+
+/* Ensure button itself captures all clicks */
+a.btn,
+button.btn,
+.btn {
+  pointer-events: auto !important;
+  cursor: pointer !important;
 }

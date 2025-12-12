@@ -25,7 +25,7 @@ function Pizzeria() {
                 <span className="box-badge">Il Nostro Segreto</span>
                 <h3 className="box-title">Impasto Fatto a Mano</h3>
                 <p className="box-description">
-                  Lievitazione naturale di 72 ore, farine selezionate 
+                  Lievitazione naturale di 72 ore, farine selezionate
                   e cottura nel nostro forno a legna tradizionale
                 </p>
                 <div className="box-features">
@@ -41,7 +41,7 @@ function Pizzeria() {
               <span className="box-icon">🍕</span>
               <h3 className="box-title">Pizza al Metro</h3>
               <p className="box-description">
-                La nostra specialità: con impasto a base di 
+                La nostra specialità: con impasto a base di
                 farina integrale, ottima da condividere anche
                 d'asporto.
               </p>
@@ -75,18 +75,6 @@ function Pizzeria() {
                   <span className="variety-desc">Verdure di stagione</span>
                 </div>
               </div>
-            </div>
-
-            {/* CTA Box */}
-            <div className="showcase-box cta-box">
-              <h3 className="box-title">Esplora il Menu</h3>
-              <p className="box-description">Scopri tutte le nostre pizze</p>
-              <a href="https://pizzeria-centro-menu.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                <span>Vedi Menu Completo</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
