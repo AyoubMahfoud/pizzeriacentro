@@ -133,6 +133,7 @@ h6 {
   top: -2px;
   transform: translateY(0);
   opacity: 1;
+}
 .title-underline::before {
   left: -20px;
 }
