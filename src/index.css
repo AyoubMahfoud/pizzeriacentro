@@ -51,6 +51,14 @@ html {
   width: 100%;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--font-modern);
   color: var(--rich-black);
@@ -58,11 +66,6 @@ body {
   overflow-x: hidden;
   background: var(--warm-white);
   -webkit-font-smoothing: antialiased;
-html,
-body,
-#root {
-  height: 100%;
-}
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   min-width: 320px;
@@ -73,8 +76,8 @@ body,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
   z-index: 1;
+}
 
 .container {
   max-width: var(--container-max);
@@ -85,7 +88,6 @@ body,
 /* ===================================
    PREMIUM TYPOGRAPHY
    =================================== */
-  pointer-events: none;
 
 h1,
 h2,
@@ -1418,6 +1420,7 @@ cite {
   z-index: 2000;
   transform: translateY(120%);
   opacity: 0;
+  pointer-events: none;
   transition: var(--transition-luxury);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -1436,6 +1439,7 @@ cite {
 .cookie-banner.is-visible {
   transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 .cookie-banner-header {
@@ -1663,6 +1667,9 @@ cite {
   padding: 80px 0 40px;
   position: relative;
   margin-top: auto;
+  z-index: 100;
+  transform: translateZ(50px);
+  pointer-events: auto;
 }
 
 .footer::before {
@@ -1805,6 +1812,7 @@ cite {
   letter-spacing: 0.5px;
   position: relative;
   z-index: 2;
+  pointer-events: auto !important;
 }
 
 .footer-links a:hover {

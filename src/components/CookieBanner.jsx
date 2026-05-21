@@ -106,7 +106,7 @@ function CookieBanner() {
   return (
     <>
       <div
-        className={`cookie-banner ${isVisible ? '' : 'is-hidden'}`}
+        className={`cookie-banner ${isVisible ? 'is-visible' : 'is-hidden'}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="cookie-title"
