@@ -73,6 +73,10 @@ function Contact() {
                   <span className="item-icon">📱</span>
                   <span>+39 379 1027408</span>
                 </a>
+                <a href="tel:+393357216076" className="contact-item">
+                  <span className="item-icon">☎️</span>
+                  <span>+39 335 7216076</span>
+                </a>
                 <a href="mailto:centro.snc@libero.it" className="contact-item">
                   <span className="item-icon">✉️</span>
                   <span>centro.snc@libero.it</span>

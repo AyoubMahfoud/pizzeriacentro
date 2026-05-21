@@ -24,6 +24,8 @@ function Footer() {
               <li>Largo Cavalli 2, angolo Corso Cavallotti, 9</li>
               <li>28100 - Novara (NO)</li>
               <li><a href="tel:+390321623232">+39 0321 623232</a></li>
+              <li><a href="tel:+393791027408">+39 379 1027408</a></li>
+              <li><a href="tel:+393357216076">+39 335 7216076</a></li>
               <li><a href="mailto:centro.snc@libero.it">centro.snc@libero.it</a></li>
             </ul>
           </div>
@@ -57,8 +59,8 @@ function Footer() {
             <p>P.I. 01469050031</p>
           </div>
           <div className="footer-links">
-            <a href="#privacy">Privacy Policy e Cookie Policy</a>
             <a href="#legal">Informazioni Legali</a>
+            <a href="#privacy">Privacy Policy e Cookie Policy</a>
           </div>
         </div>
       </div>

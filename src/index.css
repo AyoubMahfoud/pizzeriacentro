@@ -1287,6 +1287,338 @@ cite {
 }
 
 /* ===================================
+   LEGAL & POLICY SECTIONS
+   =================================== */
+
+.legal-section {
+  padding: var(--section-padding) 0;
+  background: linear-gradient(to bottom, var(--warm-white), var(--soft-cream));
+  position: relative;
+}
+
+.legal-section-alt {
+  background: white;
+}
+
+.legal-card {
+  background: white;
+  padding: 60px;
+  border-top: 4px solid var(--luxury-gold);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 40px;
+}
+
+.legal-card-secondary {
+  background: var(--soft-cream);
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+}
+
+.legal-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--rich-black);
+  font-family: var(--font-elegant);
+  letter-spacing: 1px;
+}
+
+.legal-card h4 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--rich-black);
+  font-family: var(--font-elegant);
+  letter-spacing: 0.5px;
+}
+
+.legal-card p {
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  line-height: 1.9;
+}
+
+.legal-muted {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  color: var(--dark-gold);
+  font-weight: 700;
+}
+
+.legal-list {
+  list-style: none;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.legal-list li {
+  margin-bottom: 14px;
+  padding-left: 26px;
+  position: relative;
+  color: var(--charcoal);
+  line-height: 1.8;
+}
+
+.legal-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--luxury-gold);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.legal-card a {
+  color: var(--luxury-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.legal-card a:hover {
+  border-bottom-color: var(--luxury-gold);
+}
+
+/* ===================================
+   COOKIE BANNER
+   =================================== */
+
+.cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(10, 10, 10, 0.95);
+  color: white;
+  padding: 32px 36px;
+  border: 1px solid rgba(201, 169, 97, 0.5);
+  box-shadow: var(--shadow-strong);
+  z-index: 2000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: var(--transition-luxury);
+}
+
+.cookie-banner.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cookie-banner-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.cookie-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.cookie-banner-header h3 {
+  font-size: 1.6rem;
+  font-family: var(--font-elegant);
+  letter-spacing: 1px;
+}
+
+.cookie-header-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.cookie-link {
+  background: none;
+  border: none;
+  color: var(--luxury-gold);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.cookie-description {
+  margin: 18px 0 28px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+}
+
+.cookie-preferences {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.cookie-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 18px 20px;
+  border: 1px solid rgba(201, 169, 97, 0.2);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+
+.cookie-toggle h4 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  font-family: var(--font-elegant);
+}
+
+.cookie-toggle p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: var(--transition-fast);
+  border-radius: 999px;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: var(--transition-fast);
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--luxury-gold);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+.cookie-details {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cookie-details h4 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-family: var(--font-elegant);
+}
+
+.cookie-details ul {
+  list-style: none;
+}
+
+.cookie-details li {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 20px;
+  position: relative;
+}
+
+.cookie-details li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--luxury-gold);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.cookie-btn {
+  padding: 12px 28px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.cookie-btn.primary {
+  background: var(--gradient-gold);
+  color: var(--rich-black);
+}
+
+.cookie-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.cookie-btn.ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: white;
+}
+
+.cookie-btn.outline {
+  background: transparent;
+  border-color: var(--luxury-gold);
+  color: var(--luxury-gold);
+}
+
+.cookie-fab {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 97, 0.6);
+  background: rgba(10, 10, 10, 0.9);
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1990;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-fast);
+}
+
+.cookie-fab:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ===================================
    FOOTER - LUXURY FINISH
    =================================== */
 
@@ -1616,6 +1948,24 @@ cite {
     font-size: 0.9rem;
     padding: 12px 0;
   }
+
+  .legal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legal-card {
+    padding: 40px;
+  }
+
+  .cookie-banner {
+    left: 16px;
+    right: 16px;
+    padding: 26px;
+  }
+
+  .cookie-actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1703,6 +2053,33 @@ cite {
 
   .top-bar p {
     text-align: center;
+  }
+
+  .legal-card {
+    padding: 30px;
+  }
+
+  .cookie-banner-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cookie-preferences {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-btn {
+    width: 100%;
+  }
+
+  .cookie-fab {
+    left: 14px;
+    bottom: 14px;
   }
 }
 

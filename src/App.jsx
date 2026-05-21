@@ -7,6 +7,8 @@ import Events from './components/Events'
 import GoogleReviews from './components/GoogleReviews'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import LegalPolicies from './components/LegalPolicies'
+import CookieBanner from './components/CookieBanner'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -28,7 +30,9 @@ function App() {
       <Events />
       <GoogleReviews />
       <Contact />
+      <LegalPolicies />
       <Footer />
+      <CookieBanner />
     </div>
   )
 }
