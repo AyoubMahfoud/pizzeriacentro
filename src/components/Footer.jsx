@@ -4,6 +4,7 @@ function Footer() {
   const currentYear = new Date().getFullYear()
   const goToPolicy = (hash) => {
     window.location.hash = hash
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
