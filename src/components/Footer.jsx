@@ -2,6 +2,9 @@ import React from 'react'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const goToPolicy = (hash) => {
+    window.location.hash = hash
+  }
 
   return (
     <footer className="footer">
@@ -59,8 +62,8 @@ function Footer() {
             <p>P.I. 01469050031</p>
           </div>
           <div className="footer-links">
-            <a href="#legal">Informazioni Legali</a>
-            <a href="#privacy">Privacy Policy e Cookie Policy</a>
+            <a href="#legal" onClick={() => goToPolicy('legal')}>Informazioni Legali</a>
+            <a href="#privacy" onClick={() => goToPolicy('privacy')}>Privacy Policy e Cookie Policy</a>
           </div>
         </div>
       </div>
