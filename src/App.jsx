@@ -12,6 +12,10 @@ import CookieBanner from './components/CookieBanner'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [page, setPage] = useState(() => {
+    const hash = window.location.hash.replace('#', '')
+    return hash === 'legal' || hash === 'privacy' ? 'legal' : 'home'
+  })
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,16 +25,60 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const resolvePageFromHash = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash === 'legal' || hash === 'privacy') {
+        setPage('legal')
+      } else {
+        setPage('home')
+      }
+    }
+
+    resolvePageFromHash()
+    window.addEventListener('hashchange', resolvePageFromHash)
+    return () => window.removeEventListener('hashchange', resolvePageFromHash)
+  }, [])
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+
+    if (page === 'home') {
+      if (hash && hash !== 'legal' && hash !== 'privacy') {
+        const target = document.getElementById(hash)
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' })
+          return
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    requestAnimationFrame(() => {
+      const targetId = hash === 'privacy' ? 'privacy' : 'legal'
+      const target = document.getElementById(targetId)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+      }
+    })
+  }, [page])
+
   return (
     <div className="app">
       <Navbar scrolled={scrolled} />
-      <Hero />
-      <About />
-      <Pizzeria />
-      <Events />
-      <GoogleReviews />
-      <Contact />
-      <LegalPolicies />
+      {page === 'home' ? (
+        <>
+          <Hero />
+          <About />
+          <Pizzeria />
+          <Events />
+          <GoogleReviews />
+          <Contact />
+        </>
+      ) : (
+        <LegalPolicies />
+      )}
       <Footer />
       <CookieBanner />
     </div>

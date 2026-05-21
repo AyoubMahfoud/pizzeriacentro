@@ -8,7 +8,12 @@ function Navbar({ scrolled }) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
       setIsOpen(false)
+      return
     }
+
+    window.location.hash = ''
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setIsOpen(false)
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const STORAGE_KEY = 'pizzeria-centro-cookie-preferences'
 
@@ -19,27 +19,39 @@ const normalizePreferences = (value) => {
   }
 }
 
-function CookieBanner() {
-  const [preferences, setPreferences] = useState(defaultPreferences)
-  const [isVisible, setIsVisible] = useState(false)
-  const [showDetails, setShowDetails] = useState(false)
-  const [hasConsent, setHasConsent] = useState(false)
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) {
-        const parsed = JSON.parse(stored)
-        const nextPreferences = normalizePreferences(parsed.preferences || parsed)
-        setPreferences(nextPreferences)
-        setHasConsent(true)
-      } else {
-        setIsVisible(true)
+const getInitialState = () => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored) {
+      const parsed = JSON.parse(stored)
+      const nextPreferences = normalizePreferences(parsed.preferences || parsed)
+      return {
+        preferences: nextPreferences,
+        hasConsent: true,
+        isVisible: false
       }
-    } catch (error) {
-      setIsVisible(true)
     }
-  }, [])
+  } catch (error) {
+    return {
+      preferences: defaultPreferences,
+      hasConsent: false,
+      isVisible: true
+    }
+  }
+
+  return {
+    preferences: defaultPreferences,
+    hasConsent: false,
+    isVisible: true
+  }
+}
+
+function CookieBanner() {
+  const [initialState] = useState(() => getInitialState())
+  const [preferences, setPreferences] = useState(initialState.preferences)
+  const [isVisible, setIsVisible] = useState(initialState.isVisible)
+  const [showDetails, setShowDetails] = useState(false)
+  const [hasConsent, setHasConsent] = useState(initialState.hasConsent)
 
   const persistPreferences = (nextPreferences) => {
     const payload = {
